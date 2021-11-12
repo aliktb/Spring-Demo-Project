@@ -2,10 +2,8 @@ package com.qa.springdemoproject.service;
 
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.stereotype.Service;
 import com.qa.springdemoproject.domain.Account;
-import com.qa.springdemoproject.exceptions.AccountNotFoundException;
 import com.qa.springdemoproject.repository.AccountRepo;
 
 @Service
@@ -44,9 +42,9 @@ public class AccountService {
     // id refers to list index
     // Account newAcc = accounts.get(id);
     // return newAcc;
-    Account existing = this.repo.findById(id).orElseThrow(AccountNotFoundException::new);
+    return this.repo.findById(id).get();
 
-    return existing;
+    // return existing;
 
 
   }
@@ -58,8 +56,8 @@ public class AccountService {
     // this.accounts.add(id, account);
     // return this.accounts.get(id);
 
-    Optional<Account> existingOptional = this.repo.findById(id);
-    Account existing = existingOptional.get();
+    Account existing = this.repo.findById(id).get();
+    // Account existing = existingOptional.get();
 
 
     existing.setAccountNumber(newAccount.getAccountNumber());

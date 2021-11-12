@@ -33,6 +33,9 @@ public class Account {
   @Column
   private String name;
 
+  // @JsonIgnore
+  // @OneToMany(mappedBy = "account")
+  // private List<Order> orders;
 
   public Account(String accountNumber, String name) {
     super();

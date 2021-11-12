@@ -1,0 +1,1 @@
+INSERT INTO `account` (`account_number`,`name`) VALUES ('5678','h2Name');

@@ -47,7 +47,7 @@ public class AccountController {
   @GetMapping("/readOne/{id}")
   public ResponseEntity<Account> readOne(@PathVariable Long id) {
 
-    return new ResponseEntity<Account>(this.service.readOne(id), HttpStatus.ACCEPTED);
+    return new ResponseEntity<Account>(this.service.readOne(id), HttpStatus.OK);
   }
 
   @PutMapping("/update/{id}")
@@ -63,22 +63,20 @@ public class AccountController {
     // return new ResponseEntity<Boolean>(this.service.deleteAccount(id), HttpStatus.NO_CONTENT);
     return this.service.deleteAccount(id) ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
         : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-
-
   }
 
-  @GetMapping("/getLike/{startingName}")
-  public ResponseEntity<List<Account>> getLike(@PathVariable String startingName) {
-
-    return new ResponseEntity<List<Account>>(this.service.findNameLike(startingName),
-        HttpStatus.OK);
-  }
-
-  @GetMapping("/getLessThan/{maxVal}")
-  public ResponseEntity<List<Account>> getLike(@PathVariable Long maxVal) {
-
-    return new ResponseEntity<List<Account>>(this.service.findIdUnder(maxVal), HttpStatus.OK);
-  }
+  // @GetMapping("/getLike/{startingName}")
+  // public ResponseEntity<List<Account>> getLike(@PathVariable String startingName) {
+  //
+  // return new ResponseEntity<List<Account>>(this.service.findNameLike(startingName),
+  // HttpStatus.OK);
+  // }
+  //
+  // @GetMapping("/getLessThan/{maxVal}")
+  // public ResponseEntity<List<Account>> getLike(@PathVariable Long maxVal) {
+  //
+  // return new ResponseEntity<List<Account>>(this.service.findIdUnder(maxVal), HttpStatus.OK);
+  // }
 
 
 }
